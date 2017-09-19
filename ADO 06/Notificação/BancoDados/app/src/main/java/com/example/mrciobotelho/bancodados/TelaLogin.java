@@ -1,6 +1,7 @@
 package com.example.mrciobotelho.bancodados;
 
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.usage.UsageEvents;
 import android.content.Intent;
 import android.support.v4.app.NotificationManagerCompat;
@@ -49,8 +50,12 @@ public class TelaLogin extends AppCompatActivity {
         not.setContentText("Notificação ADO 6");
         not.setContentTitle("ADO 6");
         not.setSmallIcon(R.drawable.adoo);
+        Intent intent = new Intent(this, TelaLogin.class);
+        PendingIntent pintent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        not.setContentIntent(pintent);
         NotificationManager ger = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
         ger.notify(1, not.build());
+
     }
 
     public void cadastrese (View view){
